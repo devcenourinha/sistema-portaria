@@ -3,8 +3,7 @@
 Bem-vindo ao projeto **Sistema de Portaria**! 🚪
 
 ## Fluxo de trabalho
-- Todas as alterações devem ser feitas em **branches**.
-- Padrão de nome para branch:
+- Padrão de nome para branch: (se caso houver uma equipe)
   - `feat/nome-da-feature` → novas funcionalidades
   - `fix/nome-da-correção` → correções de bugs
   - `docs/ajuste-documentacao` → mudanças em documentação
@@ -17,15 +16,7 @@ Usamos o padrão **Conventional Commits**:
 - `chore:` → manutenção/refatoração
 - `refactor:` → melhoria de código sem alterar comportamento
 
-Exemplo:  
-feat: adicionar check-in de visitante
-
-markdown
-Copiar
-Editar
-
-## Definition of Done (DoD)
-Uma tarefa só é considerada pronta quando:
+## Definition of Done (DoD) 
+Usamos o método DoD, sendo assim, uma tarefa só é considerada pronta quando:
 - Código/documento foi salvo e commitado corretamente.
 - Funcionalidade testada manualmente (fluxo principal funciona).
-- Documentação relevante atualizada.
