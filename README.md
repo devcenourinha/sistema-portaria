@@ -70,21 +70,19 @@ Este diagrama mostra como os serviços se comunicam durante o desenvolvimento lo
 
 ```mermaid
 flowchart LR
-  %% --- Navegador ---
   subgraph Navegador
     UI[React App - http://localhost:3000]
   end
 
-  %% --- Seu computador ---
   subgraph DevMachine[Seu computador]
     FE[Frontend (React)]
     BE[Backend (Node + Express)]
-    DB[(PostgreSQL)]
+    DB[(PostgreSQL DB)]
   end
 
-  UI -- fetch /api/... --> FE
-  FE -- proxy --> BE
-  BE -- queries SQL --> DB
+  UI -->|fetch /api/...| FE
+  FE -->|proxy| BE
+  BE -->|queries SQL| DB
 
   %% Estilos
   classDef box fill:#eef,stroke:#36f,stroke-width:1px
@@ -93,6 +91,7 @@ flowchart LR
   class FE,BE box
   class DB db
 ```
+
 ---
 
 ## 👨‍💻 Autor
