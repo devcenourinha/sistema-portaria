@@ -64,5 +64,30 @@ sistema-portaria/
 
 ---
 
+## Arquitetura do Ambiente de Desenvolvimento
+
+Este diagrama mostra como os serviços se comunicam durante o desenvolvimento local:
+
+```mermaid
+flowchart LR
+    subgraph Navegador
+      UI[React App - http://localhost:3000]
+    end
+
+    subgraph DevMachine[Seu computador]
+      FE[Frontend (React)]:::box
+      BE[Backend (Node/Express)]:::box
+      DB[(PostgreSQL)]:::db
+    end
+
+    UI -- fetch /api/... --> FE
+    FE -- proxy --> BE
+    BE -- queries SQL --> DB
+
+    classDef box fill:#eef,stroke:#36f,stroke-width:1px;
+    classDef db fill:#efe,stroke:#393,stroke-width:1px;
+
+---
+
 ## 👨‍💻 Autor
 Gabriel Bueno
