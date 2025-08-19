@@ -29,23 +29,41 @@ Auxiliar o porteiro e o síndico geral no registro de entradas e saídas, aument
 
 ## 📂 Estrutura do Repositório
 
+```bash
 sistema-portaria/
-├── README.md
-├── CONTRIBUTING.md
-├── CHANGELOG.md
-├── LICENSE.md
 ├── docs/
-│ ├── escopo-mvp.md
-│ ├── user-stories.md
-│ ├── regras-de-negocio.md
-│ ├── dicionario-de-dados.md
-│ ├── fluxos-e-wireframes.md
-│ ├── seguranca-lgpd.md
-│ └── backlog.md
+│   ├── dicionario-de-dados.md
+│   └── fluxos-e-wireframes.md
 ├── src/
-│ ├── backend/
-│ └── frontend/
-└── tests/
+│   ├── backend/
+│   │   ├── nodemon.json
+│   │   ├── package-lock.json
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── server.js
+│   └── frontend/
+│       ├── public/
+│       ├── src/
+│       │   ├── App.css
+│       │   ├── App.js
+│       │   ├── App.test.js
+│       │   ├── index.css
+│       │   ├── index.js
+│       │   ├── logo.svg
+│       │   ├── reportWebVitals.js
+│       │   └── setupTests.js
+│       ├── package-lock.json
+│       └── package.json
+├── tests/
+│   ├── backend/
+│   └── frontend/
+├── .gitignore
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── LICENSE.md
+└── README.md
+```
+
 
 ---
 
@@ -72,7 +90,7 @@ Este diagrama mostra como os serviços se comunicam durante o desenvolvimento lo
 ```mermaid
 flowchart LR
   subgraph Navegador
-    UI["React App - http://localhost:3000"];
+    UI["React App - localhost:3000"];
   end
 
   subgraph DevMachine["PC"]
