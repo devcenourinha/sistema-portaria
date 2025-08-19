@@ -68,6 +68,7 @@ sistema-portaria/
 
 Este diagrama mostra como os serviços se comunicam durante o desenvolvimento local:
 
+```mermaid
 flowchart LR
   %% --- Navegador ---
   subgraph Navegador
@@ -91,8 +92,7 @@ flowchart LR
 
   class FE,BE box
   class DB db
-
-
+```
 ---
 
 ## 👨‍💻 Autor
