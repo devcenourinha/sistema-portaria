@@ -79,8 +79,14 @@ sistema-portaria/
 ## 📖 Documentação
 - Wireframes: [Link do Figma](https://www.figma.com/design/uOKJ11RVZh5nPQo6SciOs2/Wireframes-%E2%80%93-Sistema-de-Portaria?node-id=0-1&t=Gy1r6fvHdnMcttzx-1)  
 - Detalhes de regras de negócio, user stories e dicionário de dados: pasta `docs/`
+- Dicionário de Dados (ER + tabelas): [docs/dicionario-de-dados.md](docs/dicionario-de-dados.md)
+- Script do Banco (MVP Bronze): [db/mvp_bronze.sql](db/mvp_bronze.sql)
 
 ---
+
+## 🗄️ Como criar o banco (local)
+
+psql -U postgres -d portaria -f db/mvp_bronze.sql
 
 ## Arquitetura do Ambiente de Desenvolvimento
 
