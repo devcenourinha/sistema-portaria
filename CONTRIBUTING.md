@@ -2,8 +2,8 @@
 
 Bem-vindo ao projeto **Sistema de Portaria**! 🚪
 
-## Fluxo de trabalho
-- Padrão de nome para branch: (se caso houver uma equipe)
+## Fluxo de trabalho (apenas se caso houver uma equipe)
+ - Padrão de nome para branch:
   - `feat/nome-da-feature` → novas funcionalidades
   - `fix/nome-da-correção` → correções de bugs
   - `docs/ajuste-documentacao` → mudanças em documentação
