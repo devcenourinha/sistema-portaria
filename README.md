@@ -31,6 +31,8 @@ Auxiliar o porteiro e o síndico geral no registro de entradas e saídas, aument
 
 ```bash
 sistema-portaria/
+├── db/
+│   └── mvp_bronze.sql
 ├── docs/
 │   ├── dicionario-de-dados.md
 │   └── fluxos-e-wireframes.md
@@ -63,7 +65,6 @@ sistema-portaria/
 ├── LICENSE.md
 └── README.md
 ```
-
 
 ---
 
@@ -110,7 +111,6 @@ flowchart LR
   class FE,BE box;
   class DB db;
 ```
-
 
 ---
 
