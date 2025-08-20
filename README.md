@@ -82,6 +82,7 @@ sistema-portaria/
 - Detalhes de regras de negócio, user stories e dicionário de dados: pasta `docs/`
 - Dicionário de Dados (ER + tabelas): [docs/dicionario-de-dados.md](docs/dicionario-de-dados.md)
 - Script do Banco (MVP Bronze): [db/mvp_bronze.sql](db/mvp_bronze.sql)
+- API MVP Bronze [docs/api-mvp-bronze.md](docs/api-mvp-bronze.md)
 
 ---
 
