@@ -67,12 +67,12 @@ sistema-portaria/
 
 ---
 
-## 🚀 Como Rodar (Futuro)
-> Ainda não implementado. Quando iniciar o desenvolvimento, aqui estarão os comandos para:  
+## 🚀 Como Rodar 
+> Quando iniciar o desenvolvimento, aqui serão os comandos para:  
 - Instalar dependências (`npm install`)  
 - Rodar backend (`npm run dev`)  
 - Rodar frontend (`npm start`)  
-- Configurar banco PostgreSQL  
+- Configurar banco PostgreSQL (`psql -U postgres -d portaria -f db/mvp_bronze.sql`)
 
 ---
 
@@ -83,10 +83,6 @@ sistema-portaria/
 - Script do Banco (MVP Bronze): [db/mvp_bronze.sql](db/mvp_bronze.sql)
 
 ---
-
-## 🗄️ Como criar o banco (local)
-
-psql -U postgres -d portaria -f db/mvp_bronze.sql
 
 ## Arquitetura do Ambiente de Desenvolvimento
 
