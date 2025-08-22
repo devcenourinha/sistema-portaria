@@ -18,6 +18,12 @@ app.get("/api/ping", (req, res) => {
   res.json({ ok: true, time: new Date().toISOString() });
 });
 
+// Teste para a rota /api/echo direto no PowerShell:
+// Invoke-RestMethod -Method POST `
+//   -Uri 'http://localhost:5000/api/echo' `
+//   -ContentType 'application/json' `
+//   -Body '{"msg":"teste"}'
+
 app.post("/api/echo", (req, res) => {
   res.json({ youSent: req.body });
 });
