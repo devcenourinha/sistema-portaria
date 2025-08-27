@@ -74,7 +74,7 @@ sistema-portaria/
 - Instalar dependências (`npm install`)  
 - Rodar backend (`npm run dev`)  
 - Rodar frontend (`npm start`)  
-- Configurar banco PostgreSQL (`psql -U postgres -d portaria -f db/mvp_bronze.sql`)
+- Configurar banco PostgreSQL (`psql -U postgres -d portaria`)
 
 ---
 
