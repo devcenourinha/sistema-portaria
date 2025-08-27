@@ -69,8 +69,7 @@ sistema-portaria/
 
 ---
 
-## 🚀 Como Rodar 
-> Quando iniciar o desenvolvimento, aqui serão os comandos para:  
+## 🚀 Como Rodar
 - Instalar dependências (`npm install`)  
 - Rodar backend (`npm run dev`)  
 - Rodar frontend (`npm start`)  
