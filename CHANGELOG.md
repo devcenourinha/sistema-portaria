@@ -13,3 +13,7 @@ Todas as mudanças notáveis de commits e funcionalidades neste projeto serão d
 - Backend entende requisições POST
 - Middleware express.json() funcionando
 - req.body acessado corretamente
+## [0.0.8] - 18-09-2025
+- Endpoint POST /api/checkin com validação e integração PostgreSQL.
+- Tabelas visitas e logs_auditoria; índice único uidx_visita_ativa.
+- .env ignorado no repositório por conter senha;
