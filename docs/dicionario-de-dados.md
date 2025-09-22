@@ -108,3 +108,10 @@ sequenceDiagram
 | criado_por   | INT            | FK    | Usuário (porteiro) que registrou a visita      |
 | criado_em    | TIMESTAMP      |       | Data de criação do registro                    |
 | atualizado_em| TIMESTAMP      |       | Última atualização do registro                 |
+
+
+### LISTAR VISITAS ATIVAS 
+
+SELECT id, visitante_id, morador_texto, placa, data_entrada
+FROM visitas
+WHERE status = 'dentro';
