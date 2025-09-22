@@ -1,4 +1,7 @@
 require('dotenv').config();
+console.log("PORT:", process.env.PORT);
+console.log("DB_USER:", process.env.DB_USER);
+console.log("DB_NAME:", process.env.DB_NAME);
 const express = require("express");
 const { json } = express;
 const cors = require("cors");
