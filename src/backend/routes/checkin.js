@@ -1,9 +1,9 @@
-// src/backend/routes/checkin.js
+
 const express = require('express');
 const router = express.Router();
 const pool = require('../config/db');
 
-// POST /api/checkin
+
 router.post('/checkin', async (req, res) => {
   const { visitante_id, morador_texto, placa } = req.body;
 
@@ -15,14 +15,14 @@ router.post('/checkin', async (req, res) => {
   try {
     await client.query('BEGIN');
 
-    // Verifica se visitante existe
+    
     const visitante = await client.query('SELECT id FROM visitantes WHERE id=$1', [visitante_id]);
     if (visitante.rowCount === 0) {
       await client.query('ROLLBACK');
       return res.status(422).json({ error: 'visitante_id não encontrado' });
     }
 
-    // Verifica se já tem check-in ativo
+    
     const ativo = await client.query(
       `SELECT 1 FROM visitas WHERE visitante_id=$1 AND status='dentro' AND data_saida IS NULL`,
       [visitante_id]
@@ -32,7 +32,7 @@ router.post('/checkin', async (req, res) => {
       return res.status(409).json({ error: 'Já existe check-in ativo para este visitante' });
     }
 
-    // Insere visita
+    
     const insert = await client.query(
       `INSERT INTO visitas (visitante_id, morador_texto, placa, status)
        VALUES ($1,$2,$3,'dentro')

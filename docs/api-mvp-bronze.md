@@ -32,6 +32,28 @@ curl -X POST http://localhost:5000/api/checkin \
   -H "Content-Type: application/json" \
   -d '{"visitante_id":1,"morador_texto":"Bloco B, ap 12B","placa":"ABC1D23"}'
 
+ Invoke-RestMethod -Method POST `
+  -Uri 'http://localhost:5000/api/checkin' `
+  -ContentType 'application/json' `
+  -Body '{"visitante_id":1,"morador_texto":"Bloco B, ap 12B","placa":"ABC1D23"}'
+
+
+  ## Finaliza uma visita com (status=dentro) define (data_saida) e muda (status=fora). (UPDATE)
+POST /api/checkout/:id
+
+{
+  "id": 123,
+  "status": "fora",
+  "placa": "ABC1D23",
+  "data_saida": "2025-08-20T15:20:00Z"
+}
+
+curl -X POST http://localhost:5000/api/checkout/123
+
+Invoke-RestMethod -Method POST `
+  -Uri 'http://localhost:5000/api/checkout/ID_DA_VISITA' `
+  -ContentType 'application/json' `
+
 
 ##  Lista as visitas com (status=dentro). (READ)
 GET /api/visitantes/ativos
@@ -49,17 +71,6 @@ GET /api/visitantes/ativos
 
 curl http://localhost:5000/api/visitantes/ativos
 
-
-## Finaliza uma visita com (status=dentro) define (data_saida) e muda (status=fora). (UPDATE)
-POST /api/checkout/:id
-
-{
-  "id": 123,
-  "status": "fora",
-  "data_saida": "2025-08-20T15:20:00Z"
-}
-
-curl -X POST http://localhost:5000/api/checkout/123
 
 
 ## Retorna contagem e registros do dia. (READ)

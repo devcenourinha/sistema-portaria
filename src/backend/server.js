@@ -1,7 +1,4 @@
 require('dotenv').config();
-console.log("PORT:", process.env.PORT);
-console.log("DB_USER:", process.env.DB_USER);
-console.log("DB_NAME:", process.env.DB_NAME);
 const express = require("express");
 const { json } = express;
 const cors = require("cors");
@@ -14,6 +11,9 @@ app.use(express.json());
 
 const checkinRouter = require('./routes/checkin');
 app.use('/api', checkinRouter);
+
+const checkoutRouter = require('./routes/checkout');
+app.use('/api', checkoutRouter);
 
 app.get("/api/hello", (req, res) => {
   res.json({ message: "Olá do backend!" });
@@ -34,5 +34,7 @@ app.post("/api/echo", (req, res) => {
 });
 
 app.listen(PORT, () => {
+  console.log("DB_USER:", process.env.DB_USER);
+  console.log("DB_NAME:", process.env.DB_NAME);
   console.log(`🚀 Servidor rodando na porta ${PORT}`);
 });
