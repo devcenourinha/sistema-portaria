@@ -21,3 +21,7 @@ Todas as mudanças notáveis de commits e funcionalidades neste projeto serão d
 - Arquivos .env.principal e .env.notebook para separar ambientes.
 - .env.example para o git sem expor credenciais.
 - db.js agora tem somente variáveis de ambiente.
+## [0.0.10] - 22-09-2025
+- Rota GET /api/relatorios?data=YYYY-MM-DD que retorna:
+  - Quantidade de entradas (check-ins) e saídas (checkouts) do dia.
+  - Lista de registros com visitante, morador_texto, horário de entrada e saída.

@@ -18,6 +18,9 @@ app.use('/api', checkoutRouter);
 const visitasRoutes = require('./routes/visitasRoutes');
 app.use('/api', visitasRoutes);
 
+const relatoriosRoutes = require('./routes/relatoriosRoutes');
+app.use('/api', relatoriosRoutes);
+
 app.get("/api/hello", (req, res) => {
   res.json({ message: "Olá do backend!" });
 });

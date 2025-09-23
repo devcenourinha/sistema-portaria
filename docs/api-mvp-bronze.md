@@ -85,7 +85,7 @@ GET /api/relatorios?data=YYYY-MM-DD
   ]
 }
 
-curl "http://localhost:5000/api/relatorios?data=2025-08-20"
+curl "http://localhost:5000/api/relatorios?data=2025-09-22"
 
 
 ## Convenções de erro serão neste formato:
