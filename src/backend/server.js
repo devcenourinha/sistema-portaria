@@ -15,6 +15,9 @@ app.use('/api', checkinRouter);
 const checkoutRouter = require('./routes/checkout');
 app.use('/api', checkoutRouter);
 
+const visitasRoutes = require('./routes/visitasRoutes');
+app.use('/api', visitasRoutes);
+
 app.get("/api/hello", (req, res) => {
   res.json({ message: "Olá do backend!" });
 });
