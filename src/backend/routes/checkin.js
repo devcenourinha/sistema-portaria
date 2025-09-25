@@ -2,13 +2,22 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../config/db');
+const asyncHandler = require("../utils/asyncHandler");
+const AppError = require("../utils/AppError");
 
 
 router.post('/checkin', async (req, res) => {
   const { visitante_id, morador_texto, placa } = req.body;
 
   if (!visitante_id || !morador_texto) {
-    return res.status(400).json({ error: 'visitante_id e morador_texto são obrigatórios' });
+    throw new AppError("visitante_id e morador_texto são obrigatórios", {
+      status: 400,
+      code: "VALIDATION_ERROR",
+      details: [
+        ...(visitante_id ? [] : [{ path: ["visitante_id"], message: "Obrigatório" }]),
+        ...(morador_texto ? [] : [{ path: ["morador_texto"], message: "Obrigatório" }]),
+      ]
+    });
   }
 
   const client = await pool.connect();
@@ -18,21 +27,23 @@ router.post('/checkin', async (req, res) => {
     
     const visitante = await client.query('SELECT id FROM visitantes WHERE id=$1', [visitante_id]);
     if (visitante.rowCount === 0) {
-      await client.query('ROLLBACK');
-      return res.status(422).json({ error: 'visitante_id não encontrado' });
+      throw new AppError("visitante_id não encontrado", {
+        status: 422,
+        code: "FK_VIOLATION"
+      });
     }
-
     
     const ativo = await client.query(
       `SELECT 1 FROM visitas WHERE visitante_id=$1 AND status='dentro' AND data_saida IS NULL`,
       [visitante_id]
     );
     if (ativo.rowCount > 0) {
-      await client.query('ROLLBACK');
-      return res.status(409).json({ error: 'Já existe check-in ativo para este visitante' });
+      throw new AppError("Já existe check-in ativo para este visitante", {
+        status: 409,
+        code: "CONFLICT_ACTIVE_CHECKIN"
+      });
     }
-
-    
+ 
     const insert = await client.query(
       `INSERT INTO visitas (visitante_id, morador_texto, placa, status)
        VALUES ($1,$2,$3,'dentro')
@@ -44,8 +55,7 @@ router.post('/checkin', async (req, res) => {
     return res.status(201).json(insert.rows[0]);
   } catch (err) {
     await client.query('ROLLBACK');
-    console.error('Erro /api/checkin:', err);
-    return res.status(500).json({ error: 'Erro interno ao processar check-in' });
+    throw err;
   } finally {
     client.release();
   }

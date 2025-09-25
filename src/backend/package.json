@@ -2,8 +2,8 @@
   "name": "sistema-portaria-backend",
   "version": "1.0.0",
   "scripts": {
-    "dev": "nodemon  ./server.js",
-    "start": "node server.js",
+    "start": "node src/backend/server.js",
+    "dev": "nodemon src/backend/server.js",
     "test": "jest"
   },
   "devDependencies": {

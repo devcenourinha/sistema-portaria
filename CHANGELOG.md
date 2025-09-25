@@ -25,3 +25,5 @@ Todas as mudanças notáveis de commits e funcionalidades neste projeto serão d
 - Rota GET /api/relatorios?data=YYYY-MM-DD que retorna:
   - Quantidade de entradas (check-ins) e saídas (checkouts) do dia.
   - Lista de registros com visitante, morador_texto, horário de entrada e saída.
+- Agora os erros são tratados apenas com AppError ou objetos { status, code, message }.
+- Retorno fallback genérico para erros inesperados retorna 500 SERVER_ERROR.
